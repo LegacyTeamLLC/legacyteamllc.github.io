@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {
+  font-family: 'Silkscreen';
+  src: url('Fonts/Silkscreen-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, rgb(0, 4, 19), rgb(0, 32, 90)) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  font-family: 'Silkscreen', sans-serif;
+}
+
+img {
+  max-width: 500px;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.header-img {
+  margin-bottom: 0;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+button.toggle-btn {
+  font-family: 'Silkscreen', sans-serif;
+  font-size: 20px;
+  background-color: #222;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button.toggle-btn:hover {
+  background-color: #444;
+}
+
+.modal-content {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+/* Show Animation */
+.modal.show {
+  display: flex;
+}
+.modal.show .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hide Animation */
+.modal.hide .modal-content {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<img src="unnamed (1).png" alt="SummerSaltStudios Logo">
+<img src="capulegacy01.png" alt="Header Image" class="header-img">
+
+<div class="text">
+  Coming Soon...
+</div>
+
+<button class="toggle-btn" onclick="openModal()">Show Privacy Policy</button>
+
+<!-- The Modal -->
+<div id="privacyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Privacy Policy</h2>
+    <p><strong>Last updated:</strong> June 1st, 2025</p>
+
+    <h3>1. DEFINITIONS</h3>
+    <p>"Oculus/Meta ID": A string that uniquely and consistently identifies a given specific Oculus/Meta account.<br>
+    "IP address" and "IP": Unique string of characters that your device uses to send Internet Protocols.<br>
+    "headset": The device you are running the game on.<br>
+    "I", "we", "us", "our" and “SummerSaltStudios": The developer(s).<br>
+    "services", "game": Games/services developed and published by SummerSaltStudios</p>
+
+    <h3>2. DATA COLLECTION</h3>
+    <p>A. Oculus/Meta ID<br>
+    Your Oculus/Meta ID gets collected by PlayFab to log into your PlayFab/Extinction account.<br><br>
+    B. IP Address<br>
+    Your IP address gets stored on your PlayFab/Extinction account.<br><br>
+    C. Removal of PlayFab/Extinction account<br>
+    If you are unhappy with the data collected and you want your account and all data tied to you deleted, you may contact us as described in Section 6 below.</p>
+
+    <h3>3. USE OF DATA</h3>
+    <p>A. IP Address<br>
+    As stated in Section 2A, your IP address gets stored on your PlayFab/Extinction account and can only be used for IP bans and other moderation purposes.<br><br>
+    B. Third-party services<br>
+    We do not have any control over our third-party services, if you are interested in knowing more information please read the privacy policy for our third-party services:<br>
+    PlayFab - <a href="https://playfab.com/terms/" target="_blank">https://playfab.com/terms/</a><br>
+    Photon - <a href="https://dashboard.photonengine.com/en/Account/PrivacyAndCookiePolicy" target="_blank">Photon Privacy Policy</a></p>
+
+    <h3>4. CHILDREN’S INFORMATION</h3>
+    <p>The Services are not directed to children under 13, and we do not knowingly collect personal information from children.<br>
+    If you are a parent or guardian and wish to review or delete information collected from your child, you may contact us as described in Section 6 below.</p>
+
+    <h3>5. OTHER PROVISIONS</h3>
+    <p>Third-party websites may link to our Services. We are not responsible for their privacy practices.<br>
+    Supervisory Authority: If you are located in the EEA, Switzerland, the UK or Brazil, you may lodge a complaint with a supervisory authority.<br>
+    We may revise this Privacy Policy at our sole discretion. Continuing to use our Services after updates means you accept the new Privacy Policy.</p>
+
+    <h3>6. CONTACT US</h3>
+    <p>Email: <a href="mailto:summersaltsupport@gmail.com">summersaltsupport@gmail.com</a></p>
+  </div>
+</div>
+
+<script>
+function openModal() {
+  const modal = document.getElementById("privacyModal");
+  modal.style.display = "flex";
+  modal.classList.remove("hide");
+  requestAnimationFrame(() => {
+    modal.classList.add("show");
+  });
+}
+
+function closeModal() {
+  const modal = document.getElementById("privacyModal");
+  modal.classList.add("hide");
+  setTimeout(() => {
+    modal.classList.remove("show");
+    modal.classList.remove("hide");
+    modal.style.display = "none";
+  }, 300);
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("privacyModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+</body>
+</html>
